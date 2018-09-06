@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <?php include("header.php"); ?>
-    <style>
-         @page {
-            /* dimensions for the whole page */
-        size: A5 ;
-        }
-        @media print {
-            body * {
-                 visibility: hidden;
-            }
-            #section-to-print, #section-to-print * {
-                visibility: visible;
-            }
-            #section-to-print {
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
-        }
-    
-    </style>
-</head>
-<body>
-<?php include("nav.php"); ?>
-        <?php  
-          include ('init.php');   
+<?php  
+          include ('../init.php');   
           global $connect;     
           if($_SERVER["REQUEST_METHOD"] == "POST")  
             {  
@@ -162,73 +131,9 @@
                   '$mobile','$mobileToken','$baggage','$baggageToken','$departureTime','$imgName','$Parking','$ByPass','$vehicleType','$vehicleNo', '$reference')";
 
                 $result = mysqli_query($connect,$queryInsert);
+                echo '<script>window.location="http://localhost/VMS/admin/dashboardAdmin.php"</script>';
             }  
             else{
-              echo '<script>window.location="http://localhost/VMS/dashboard1.php"</script>';
+              echo '<script>window.location="http://localhost/VMS/admin/adminAdvanceBooking.php"</script>';
             }
         ?> 
-
-            <br><br>
-        <div class="container">
-            <div class="card" id="section-to-print">
-                <div class="card-body">
-                    <div class="row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
-                        <img src="assets/img/logo.png" class="mx-auto d-block" alt="AKD-LOGO" height="40px" weight="80%">  
-                    </div>
-                    <div class="col-sm-2"></div>
-                    </div>
-                    <br><br> 
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <!-- image from database will go here -->
-                            <?php
-                                $folder = 'uploads';
-                                $handle = opendir($folder);
-                                
-                                echo '<img src="'.$folder.'/'.$imgName.'"width="150" height="150"/>';
-                            ?>
-                        </div>
-                        <div class="col-sm-9">
-                        <table width="100%">
-                                    <tr>
-                                        <td ><h5>NAME : <?php echo $name?></h5> </td>
-                                        <td style="text-align: center"><h5>DESIGNATION :<?php echo $desig." - ".$cmpName ?> </h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td ><h5>MOBILE : <?php echo $personalNo?></h5> </td>
-                                        <td style="text-align: center"><h5>Total Guests : <?php echo $noOfGuest?></h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td ><h5>WHOM TO MEET : <?php echo $volunteerDropdown?></h5> </td>
-                                        <td style="text-align: center"><h5>REMARKS : <?php echo $reason?></h5></td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td ><h5>ARRIVAL : <?php echo $arrivalTime." - ".$visitDate?></h5> </td>
-                                        <td style="text-align: center"><h5>DEPARTURE : <?php echo"                    " ?></h5></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td ><h5>TOKEN : <?php echo $baggageToken." - ".$mobileToken?></h5> </td>
-                                        
-                                    </tr>
-                                    
-                                </table>
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <input TYPE="button" value="Print" onClick="window.print()">
-        <input TYPE="button" value="Continue" onClick="nextPage()">
-        <script>
-            var nextPage = () => {
-                window.location = "http://localhost/VMS/dashboard1.php";
-            }
-        </script>
-
-</body>
-</html>

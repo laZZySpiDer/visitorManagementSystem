@@ -1,11 +1,4 @@
-city - new city addition 
-reason :- remove dropdown and add simple input:text
-no of Persons :- remove child count and adult coutnt
-office number :-
-visitDate : change to indian format
-
-Time : estimated TIme (prior time)
-        arrival TIme()
-        dispatch (Tour started)
-
-remove guide name and guideTour values from normal panel
+later editing options in state country city
+adding volunteers list
+MR,MS,MRS,DR (with full stop)
+photo album with users

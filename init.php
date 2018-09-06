@@ -7,5 +7,4 @@ define('password','');
 define('databaseName','akd');
 
 $connect = mysqli_connect(hostname,user,password,databaseName);
-
- ?>
+?>

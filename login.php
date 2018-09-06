@@ -27,16 +27,17 @@
           $tempresult = mysqli_query($connect,$checkQuery);
           $temprow = mysqli_fetch_assoc($tempresult);
           $role = $temprow["role"];
-
+			// echo $username;
+			// echo $password;
 
 
             if(mysqli_num_rows($tempresult)==0){
               echo '<script>alert("Wrong Credentials")</script>';
             }
             else if($role == "admin"){
-              echo '<script>window.location="http://localhost/VMS/dashboard2.php";</script>';
+              echo '<script>window.location="http://localhost/VMS/admin/dashboardAdmin.php";</script>';
             }else{
-              echo '<script>window.location="http://localhost/VMS/dashboard1.php";</script>';
+              echo '<script>window.location="http://localhost/VMS/dashboard.php";</script>';
             }  
 
         }
@@ -50,8 +51,18 @@
 
         ?>  
 
-        <br/><br/><br/><br/>
+        <br/><br/>
+            
+            
+        
         <div class="container">
+        <div class="row">
+              <div class="col-sm-2"></div>
+              <div class="col-sm-8">
+                <img src="assets/img/logo.png" class="mx-auto d-block" alt="AKD-LOGO" height="80px" weight="80%">  
+              </div>
+              <div class="col-sm-2"></div>
+            </div>
                 <div class="row">
                   <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card card-signin my-5">
