@@ -33,7 +33,15 @@
                         </script>
                         <br><br>
                         <!-- <a href="javascript:void(webcam.snap())">Take SnapShot</a> -->
-                        <input type="button" id="Capture" value="CAPTURE THE PHOTO" class="btn btn-primary " onClick="capture()">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                            <input type="button" id="Capture" value="CAPTURE THE PHOTO" class="btn btn-primary " onClick="capture()">    
+                            
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                        
                         <script> 
                             var capture = () =>{
                               webcam.snap();  
@@ -43,17 +51,30 @@
                         </script>
                 </div>
                 <div class="col-sm-8">
-                    <form action="idGenerator.php"  method="post">
+                    <form action="idGenerator.php" autocomplete="off"  method="post">
                         
                         <!-- FULL NAME -->
                         <div class="form-row">
                             <div class="form-group col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">First Name</label>
+                                        <label for="fname"><strong>FIRST NAME</strong></label>
                                     </div>
                                     <div class="col-sm-8">
-                                        <input type="text" name="fname" id="fname" placeholder="First Name" class="form-control" required autofocus>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <select name="nameTag" class="form-control" id="nameTag">
+                                                     <option value=""></option>
+                                                    <option value="MR">Mr.</option>
+                                                    <option value="MRS">Mrs.</option>
+                                                    <option value="MISS">Ms.</option>
+                                                    <option value="DR">Dr.</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <input type="text" name="fname" id="fname" placeholder="First Name" class="form-control" required autofocus>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -62,7 +83,7 @@
                             <div class="form-group col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                    <label for="fname">Last Name</label>
+                                    <label for="fname"><strong>LAST NAME</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="text" name="lname" id="lname" placeholder="Last Name" class="form-control" >
@@ -77,7 +98,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="desig">Designation</label>
+                                        <label for="desig"><strong>DESIGNATION</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="text" name="desig" id="desig" placeholder="Designation" class="form-control">
@@ -87,7 +108,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="cmpName">Company</label>
+                                        <label for="cmpName"><strong>COMPANY</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="text" name="cmpName" id="cmpName" placeholder="Company Name" class="form-control">
@@ -103,7 +124,7 @@
                             <div class="form-group col-md-6">
                              <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="emailId">Email Id</label>
+                                        <label for="emailId"><strong>EMAIL ID</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="email" name="emailId" id="emailId" placeholder="Email Id" class="form-control" >
@@ -114,7 +135,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">No. of Guest</label>
+                                        <label for="fname"><strong>NO. OF GUEST</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="number" name="noOfGuest"  id="noOfGuest" placeholder="No Of Guest" class="form-control">
@@ -130,7 +151,7 @@
                             <div class="form-group col-md-6">
                              <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">Mobile No.</label>
+                                        <label for="fname"><strong>MOBILE NO.</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="number" name="personalNo" id="personalNo" placeholder="Mobile No." class="form-control" >
@@ -141,7 +162,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">Office No.</label>
+                                        <label for="fname"><strong>OFFICE NO.</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="number" name="officeNo" id="officeNo" placeholder="Office No." class="form-control">
@@ -155,12 +176,13 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">  
-                                        <label for="fname">City</label>
+                                        <label for="fname"><strong>CITY</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <select name="cityDropdown" onchange="cityChange()" data-live-search="true" id="cityDropdown" class="form-control">
+                                                <option></option>
                                                 <?php  
 
                                                     $query = "select cityName from city ORDER BY cityName ASC";
@@ -187,12 +209,14 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">  
-                                        <label for="fname">State</label>
+                                        <label for="fname"><strong>STATE</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <select name="stateDropdown" onchange="stateChange()" data-live-search="true" id="stateDropdown" class="form-control">
+                                                <option>GUJARAT</option>
+                                                
                                                 <?php  
 
                                                     $query = "select stateName from state ORDER BY stateName ASC";
@@ -223,12 +247,14 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                         <div class="col-sm-4">  
-                                            <label for="fname">Country</label>
+                                            <label for="fname"><strong>COUNTRY</strong></label>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <select name="countryDropdown" onchange="countryChange()" data-live-search="true" id="countryDropdown" class="form-control">
+                                                    <option>INDIA</option>
+                                                    
                                                     <?php  
 
                                                         $query = "select countryName from country ORDER BY countryName ASC";
@@ -259,13 +285,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="Parking" name="Parking" value="Yes">
-                                            <label class="form-check-label" for="inlineCheckbox3">Parking</label>
+                                            <label class="form-check-label" for="inlineCheckbox3"><strong>PARKING</strong></label>
                                         </div>   
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="ByPass" name="ByPass" value="Yes">
-                                            <label class="form-check-label" for="inlineCheckbox2">BP</label>
+                                            <label class="form-check-label" for="inlineCheckbox2"><strong>BP</strong></label>
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +312,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" onchange="onMobileAllowed()" id="mobile" name="mobile" value="Yes">
-                                            <label class="form-check-label" for="inlineCheckbox3">Mobile</label>
+                                            <label class="form-check-label" for="inlineCheckbox3"><strong>MOBILE</strong></label>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
@@ -301,7 +327,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" onchange="onBaggageAllowed()" id="baggage" name="baggage" value="Yes">
-                                            <label class="form-check-label" for="inlineCheckbox3">Baggage</label>
+                                            <label class="form-check-label" for="inlineCheckbox3"><strong>BAGGAGE</strong></label>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
@@ -317,21 +343,21 @@
                             <div class="form-group col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                    <label for="fname">To Meet</label>
+                                    <label for="fname"><strong>TO MEET</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                     <select name="volunteerDropdown" onchange="volunteerChange()" data-live-search="true" id="volunteerDropdown" class="form-control">
+                                                    <option></option>
                                                     <?php  
-
                                                         $query = "select volunName from volunteersname ORDER BY volunName ASC";
                                                         $result = mysqli_query($connect,$query);
                                                         while($row = mysqli_fetch_assoc($result)){
                                                         $array[] = $row;
                                                         echo '<option value="'.$row['volunName'].'">'.$row['volunName'].'</option>';
                                                         }
-                                                    // mysqli_close($connect);
+                                                        // mysqli_close($connect);
                                                     ?>
                                                     <option>OTHER</option>
                                                     </select>  
@@ -348,7 +374,7 @@
                             <div class="form-group col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                    <label for="fname">Reference</label>
+                                    <label for="fname"><strong>REFERENCE</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="text" name="reference" id="reference" placeholder="Reference" class="form-control" >
@@ -363,10 +389,11 @@
                             <div class="form-group col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-5">
-                                    <label for="fname">Vehicle Type</label>
+                                    <label for="fname"><strong>VEHICLE TYPE</strong></label>
                                     </div>
                                     <div class="col-sm-7">
                                         <select name="vehicleType"  id="vehicleType" class="form-control">
+                                            <option></option>
                                             <option>2 Wheeler</option>
                                             <option>3 Wheeler</option>
                                             <option>4 Wheeler</option>
@@ -380,7 +407,7 @@
                             <div class="form-group col-sm-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                    <label for="fname">Vehicle No</label>
+                                    <label for="fname"><strong>VEHICLE NO</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="text" name="vehicleNo" id="vehicleNo" placeholder="Vehicle No." class="form-control" >
@@ -393,16 +420,16 @@
                          <!--   VISIT DATE AND TIME-->
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="fname">Visit Date</label>
+                                <label for="fname"><strong>VISIT DATE</strong></label>
                                 <input type="date" name="visitDate" id="visitDate" class="form-control">
                                 <script>document.getElementById('visitDate').valueAsDate = new Date();</script>                              
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="fname">Arrival Time</label>
+                                <label for="fname"><strong>ARRIVAL TIME</strong></label>
                                 <input type="time" name="arrivalTime" id="arrivalTime" class="form-control">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="fname">Departure Time</label>
+                                <label for="fname"><strong>DEPARTURE TIME</strong></label>
                                 <input type="time" name="departureTime" id="departureTime" class="form-control">
                             </div>
                         </div> 
@@ -412,7 +439,7 @@
                             <div class="form-group col-md-12">
                                 <div class="row">
                                     <div class="col-sm-2">
-                                    <label for="fname">Remarks</label>
+                                    <label for="fname"><strong>REMARKS</strong></label>
                                     </div>
                                     <div class="col-sm-10">
                                     <input type="text" name="reason" id="reason" placeholder="Remarks" class="form-control" >
@@ -423,6 +450,7 @@
                         <!-- <input type="button" value="SUBMIT" class="btn btn-primary btn-lg btn-block"> -->
                         <button type="submit" name="submitData" id="submitData" class="btn btn-primary btn-lg btn-block">SUBMIT</button>                      
                         <br> 
+                        <!-- functions to disable enable certain input boxes on dynamic changes in DOM  -->
                         <script>
                             document.getElementById("submitData").disabled = false;
                             document.getElementById("otherCity").disabled = true;

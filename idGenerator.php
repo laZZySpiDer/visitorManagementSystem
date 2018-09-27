@@ -36,7 +36,8 @@
             {  
               $fname = $_POST["fname"];
               $lname = $_POST["lname"];
-              $name = $fname." ".$lname;
+              $nameTag = $_POST["nameTag"];
+              $name = $nameTag." ".$fname." ".$lname;
               $name = strtoupper($name);
               $emailId = $_POST["emailId"];
               $personalNo = $_POST["personalNo"];
@@ -123,7 +124,9 @@
               $vehicleType = $_POST["vehicleType"];
               $vehicleNo = $_POST["vehicleNo"];
               $desig = $_POST["desig"];
+              $desig = strtoupper($desig);
               $cmpName = $_POST["cmpName"];
+              $cmpName = strtoupper($cmpName);
               $visitDateOLD = $_POST["visitDate"];
               $visitDate = date("d-m-Y",strtotime($visitDateOLD));
               date_default_timezone_set('Asia/Kolkata');
@@ -226,7 +229,7 @@
         <input TYPE="button" value="Continue" onClick="nextPage()">
         <script>
             var nextPage = () => {
-                window.location = "http://localhost/VMS/dashboard1.php";
+                window.location = "http://localhost/VMS/dashboard.php";
             }
         </script>
 

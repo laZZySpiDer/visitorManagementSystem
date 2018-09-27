@@ -55,7 +55,7 @@
                     // $departureTime = $row[''];
                 }
             }else{
-                echo 'No Data for this ID';
+                echo '<script>alert("No Data for this ID")</script>';
             }
         }else{
                 echo 'Result Error';
@@ -71,21 +71,21 @@
             $imgName = "";
         }
         
-        echo '<script>alert("'.$data[0].'")</script>';
+        
        
       
         setcookie("imgName", "", time() - 3600, "/");
 
 
-        $update_Query = "UPDATE visitordata SET name='$data[1]',personalNo=$data[6],
-        officeNo=$data[7],email='$data[4]',noOfPerson=$data[5],reason='$data[10]',
-        dateOfVisit=$data[11],arrivalTime='$data[8]',designation='$data[2]',
-        companyName='$data[3]',mobileToken=$data[12],baggageToken=$data[13],
+        $update_Query = "UPDATE visitordata SET name='$data[1]',personalNo='$data[6]',
+        officeNo='$data[7]',email='$data[4]',noOfPerson=$data[5],reason='$data[10]',
+        dateOfVisit='$data[11]',arrivalTime='$data[8]',designation='$data[2]',
+        companyName='$data[3]',mobileToken='$data[12]',baggageToken='$data[13]',
         departureTime='$data[9]',
         userImage='$imgName' WHERE visitorId=$data[0]";
         try{
             $updateResult = mysqli_query($connect,$update_Query);
-            echo '<script>alert("'.$imgName.'")</script>';
+            // echo '<script>alert("'.$data[0].'")</script>';
             if($updateResult){
                 if(mysqli_affected_rows($connect) > 0){
                     echo '<script>alert("Data Updated")</script>';
@@ -134,11 +134,20 @@
                         <script language="JavaScript" type="text/javascript">
                             webcam.set_swf_url("assets/webcam/webcam.swf");
                             webcam.set_shutter_sound(true, "assets/webcam/shutter.mp3");
-                            document.write(webcam.get_html(420, 420));
+                            document.write(webcam.get_html(400, 420));
                         </script>
                         <br><br>
                         <!-- <a href="javascript:void(webcam.snap())">Take SnapShot</a> -->
-                        <input type="button" id="Capture" value="CAPTURE THE PHOTO" class="btn btn-primary " onClick="capture()">
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <input type="button" id="Capture" value="CAPTURE THE PHOTO" class="btn btn-primary " onClick="capture()">
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+
+                        
+                        
                         <script> 
                             var capture = () =>{
                               webcam.snap();  
@@ -159,12 +168,13 @@
                            </div>      
                         </div>
                         <br><br>
+                        
                         <!-- FULL NAME -->
                         <div class="form-row">
                             <div class="form-group col-sm-12">
                                 <div class="row">
                                     <div class="col-sm-2">
-                                        <label for="fname">Full Name</label>
+                                        <label for="fname"><strong>FULL NAME</strong></label>
                                     </div>
                                     <div class="col-sm-10">
                                         <input type="text" value="<?php echo $name ?>" name="name" id="name" placeholder="Full Name" class="form-control" autofocus>
@@ -179,7 +189,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="desig">Designation</label>
+                                        <label for="desig"><strong>DESIGNATION</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="text" value="<?php echo $desig ?>" name="desig" id="desig" placeholder="Designation" class="form-control">
@@ -189,7 +199,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="cmpName">Company</label>
+                                        <label for="cmpName"><strong>COMPANY</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="text" name="cmpName" value="<?php echo $cmpName ?>" id="cmpName" placeholder="Company Name" class="form-control">
@@ -205,7 +215,7 @@
                             <div class="form-group col-md-6">
                              <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="emailId">Email Id</label>
+                                        <label for="emailId"><strong>EMAIL ID</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="email" value="<?php echo $emailId ?>" name="emailId" id="emailId" placeholder="Email Id" class="form-control" >
@@ -216,7 +226,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">No. of Guest</label>
+                                        <label for="fname"><strong>NO OF GUEST</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="number" name="noOfGuest" value="<?php echo $noOfGuest ?>"  id="noOfGuest" placeholder="No Of Guest" class="form-control">
@@ -232,7 +242,7 @@
                             <div class="form-group col-md-6">
                              <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">Mobile No.</label>
+                                        <label for="fname"><strong>MOBILE NO.</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="number" name="personalNo" value="<?php echo $personalNo ?>" id="personalNo" placeholder="Mobile No." class="form-control" >
@@ -243,7 +253,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="fname">Office No.</label>
+                                        <label for="fname"><strong>OFFICE NO</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                     <input type="number" name="officeNo" value="<?php echo $officeNo ?>" id="officeNo" placeholder="Office No." class="form-control">
@@ -257,7 +267,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="desig">Mobile Token</label>
+                                        <label for="desig"><strong>MOBILE TOKEN</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="text"  name="mbToken" id="mbToken" placeholder="Mobile Token" class="form-control">
@@ -267,7 +277,7 @@
                             <div class="form-group col-md-6">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <label for="cmpName">Luggage Token</label>
+                                        <label for="cmpName"><strong>LUGGAGE TOKEN</strong></label>
                                     </div>
                                     <div class="col-sm-8">
                                         <input type="text" name="lgToken"  id="lgToken" placeholder="Luggage Token" class="form-control">
@@ -281,16 +291,16 @@
                         <!--   VISIT DATE AND TIME-->
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label for="fname">Visit Date</label>
+                                <label for="fname"><strong>VISIT DATE</strong></label>
                                 <input type="date" name="visitDate" id="visitDate" class="form-control">
                                 <script>document.getElementById('visitDate').valueAsDate = new Date();</script>                              
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="fname">Arrival Time</label>
+                                <label for="fname"><strong>ARRIVAL TIME</strong></label>
                                 <input type="time" name="arrivalTime" id="arrivalTime" class="form-control">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="fname">Departure Time</label>
+                                <label for="fname"><strong>DEPARTURE TIME</strong></label>
                                 <input type="time" name="departureTime" id="departureTime" class="form-control">
                             </div>
                         </div> 
@@ -300,7 +310,7 @@
                             <div class="form-group col-md-12">
                                 <div class="row">
                                     <div class="col-sm-2">
-                                    <label for="fname">Remarks</label>
+                                    <label for="fname"><strong>REMARKS</strong></label>
                                     </div>
                                     <div class="col-sm-10">
                                     <input type="text" name="reason" id="reason" placeholder="Remarks" class="form-control" >

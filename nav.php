@@ -4,6 +4,7 @@
         <a class="navbar-brand" href="login.php">VISITOR MANAGEMENT SYSTEM : AKSHARDHAM</a>
         <a style="color:white;margin-left:60px" href="dashboard.php">NEW ENTRY</a>
         <a style="color:white;margin-left:20px" href="guestEntryUpdate.php">GUEST ENTRY</a>
+        <a style="color:white;margin-left:20px" href="idPrint.php">PRINT ID</a>
       </div>
       
       

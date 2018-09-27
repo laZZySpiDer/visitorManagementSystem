@@ -1,6 +1,9 @@
 <?php include("../init.php");
    global $connect;
-   $title = $_POST["title"]."%"; 
+  //  $title = $_POST["title"]."%";
+   $title = $_POST["title"];
+   $title = strtoupper($title)."%";
+
    $criteria = $_POST["criteria"];
    $query = "SELECT visitorId,name,personalNo,noOfPerson,city,state,country,email,mobileAllowed,reference,
    dateOfVisit,visitorId FROM visitordata WHERE $criteria LIKE '$title' ORDER BY visitorId DESC";

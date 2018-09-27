@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/dataTables.bootstrap4.min.css"/>
+    <script src="assets/jquery-3.3.1.js"></script>
+    <script src="assets/jquery.dataTables.min.js"></script>
+    <script src="assets/dataTables.bootstrap4.min.js"></script>
    
 </head>
 <body>
@@ -21,17 +21,32 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-6">
                 <div class="row">
-                    <div class="col-sm-4">
-                        <input type="text" name="nameSearch" class="form-control" id="searchText">
+                    <div class="col-sm-7">
+                        <div class="row">
+                            <!-- <div class="col-sm-4">
+                                <input type="date" name="startDate" class="form-control" id="startDate">  
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="date" name="endDate" class="form-control" id="endDate">
+                            </div> -->
+                            <div class="col-sm-12">
+                                <input type="text" name="nameSearch" class="form-control" id="searchText">
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <select name="searchCriteria" id="searchCriteria" class="form-control">
                             <option value="name">NAME</option>
                             <option value="reference">REFERENCE</option>
+                            <option value="companyName">COMPANY</option>
+                            <option value="designation">DESIGNATION</option>
                             <option value="city">CITY</option>
+                            <option value="state">STATE</option>
+                            <option value="country">COUNTRY</option>
                         </select>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <input type="button" id="buttonSearch" class="btn primary-btn" value="Search"/>
                     </div>
                 </div>
